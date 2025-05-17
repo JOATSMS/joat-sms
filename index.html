@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JOAT SMS - Student Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>JOAT SMS</h1>
+    <p>Free Student Management System</p>
+  </header>
+
+  <section class="hero">
+    <h2 id="welcome-msg">Welcome to JOAT SMS</h2>
+    <p>A free student management system you can download and use today.</p>
+    <button onclick="document.getElementById('downloadModal').style.display='block'">Download Now</button>
+    <a class="youtube-link" href="https://youtube.com/@joatacademy4400?si=RuJc0nLcYEZDciDY" target="_blank">Watch Tutorial</a>
+  </section>
+
+  <section class="features">
+    <h2>Features</h2>
+    <ul>
+      <li>Student registration and tracking</li>
+      <li>Term-based payment records</li>
+      <li>Quick retrieval of student details</li>
+      <li>Built with Microsoft Excel and VBA</li>
+    </ul>
+  </section>
+
+  <section class="note">
+    <h2>User Note</h2>
+    <p>Please ensure you extract the downloaded ZIP file before running the application. For best performance, enable macros when opening the Excel file.</p>
+    <p><a href="https://drive.google.com/file/d/1QEIzObtKH-8qokn9h-GAKK_rSOrRNo7p/view?usp=sharing" target="_blank">📄 View App Documentation (Google Drive)</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 JOAT SMS. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="downloadModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('downloadModal').style.display='none'">&times;</span>
+      <p>Click below to download:</p>
+      <a class="download-btn" href="https://www.dropbox.com/scl/fo/jn5hljucsfyzhtsxn52eo/AK5l1ij4aiKPlvVvewPZ-Ig?rlkey=n8qouex83dpv8sp1lou1ymq6u&st=gadn435v&dl=0" target="_blank">Download SMS.zip</a>
+    </div>
+  </div>
+
+  <script>
+    const welcomeMsg = document.getElementById("welcome-msg");
+    const messages = [
+      "Welcome to JOAT SMS",
+      "Manage Students with Ease",
+      "Free and Easy to Use",
+      "JOAT SMS: Built for Educators"
+    ];
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % messages.length;
+      welcomeMsg.textContent = messages[index];
+    }, 3000);
+  </script>
+
+</body>
+</html>
