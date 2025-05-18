@@ -1,43 +1,225 @@
-<!DOCTYPE html>
+<!DOCTYPE html>   
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JOAT SMS - Student Management System</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JOAT SMS – School Management Solution</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-image: url('school.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .logo-title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .logo-title-container img {
+      width: 80px;
+      height: auto;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .tagline {
+      background-color: #e6f0ff;
+      padding: 20px;
+      text-align: center;
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #004080;
+      border-bottom: 2px solid #004080;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+      background-color: #cce0ff;
+      padding: 30px 20px;
+      border-radius: 10px;
+    }
+    .cta h3 {
+      margin-bottom: 10px;
+    }
+    .center {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .download-btn, .youtube-link, .doc-link {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #004080;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      border-radius: 10px;
+    }
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <h1>JOAT SMS</h1>
-    <p>Free Student Management System</p>
+    <div class="logo-title-container">
+      <img src="joatsmslogo.png" alt="JOAT SMS Logo">
+      <h1>JOAT SMS</h1>
+    </div>
+    <p id="welcome-msg">WELCOME TO JOAT SMS</p>
   </header>
 
-  <section class="hero">
-    <h2 id="welcome-msg">Welcome to JOAT SMS</h2>
-    <p>A free student management system you can download and use today.</p>
-    <button onclick="document.getElementById('downloadModal').style.display='block'">Download Now</button>
+  <div class="tagline">
+    <strong>Streamline. Simplify. Succeed.</strong>
+  </div>
+
+  <section class="center">
+    <button onclick="document.getElementById('downloadModal').style.display='block'" class="download-btn">Download Now</button>
     <a class="youtube-link" href="https://youtube.com/@joatacademy4400?si=RuJc0nLcYEZDciDY" target="_blank">Watch Tutorial</a>
+    <a class="doc-link" href="https://drive.google.com/file/d/1QEIzObtKH-8qokn9h-GAKK_rSOrRNo7p/view?usp=sharing" target="_blank">📄 View Documentation</a>
   </section>
 
-  <section class="features">
-    <h2>Features</h2>
+  <section>
+    <h2>Welcome to JOAT SMS</h2>
+    <p>
+      JOAT SMS is the all-in-one, user-friendly school management system designed specifically for educators.
+      Whether you're managing enrolment, academic records, or financial operations, JOAT SMS empowers schools with
+      powerful tools for efficiency and excellence.
+    </p>
+  </section>
+
+  <section>
+    <h2>Why Choose JOAT SMS?</h2>
     <ul>
-      <li>Student registration and tracking</li>
-      <li>Term-based payment records</li>
-      <li>Quick retrieval of student details</li>
-      <li>Built with Microsoft Excel and VBA</li>
+      <li><strong>Easy to Use:</strong> Intuitive interface designed for teachers and school administrators.</li>
+      <li><strong>Built for Educators:</strong> Tailored to meet the unique needs of modern education.</li>
+      <li><strong>Stress-Free Management:</strong> Automate repetitive tasks and focus more on teaching and learning.</li>
+      <li><strong>Works Offline:</strong> No internet? No problem — JOAT SMS keeps running smoothly.</li>
     </ul>
   </section>
 
-  <section class="note">
-    <h2>User Note</h2>
-    <p>Please ensure you extract the downloaded ZIP file before running the application. For best performance, enable macros when opening the Excel file.</p>
-    <p><a href="https://drive.google.com/file/d/1QEIzObtKH-8qokn9h-GAKK_rSOrRNo7p/view?usp=sharing" target="_blank">📄 View App Documentation (Google Drive)</a></p>
+  <section>
+    <h2>Core Features</h2>
+
+    <h3>Student Management</h3>
+    <ul>
+      <li>Register and track student information</li>
+      <li>Capture and store passport-sized photos</li>
+      <li>Assign unique student codes</li>
+    </ul>
+
+    <h3>Academic Records</h3>
+    <ul>
+      <li>Record attendance, grades, and behaviour</li>
+      <li>Automate SBA (School-Based Assessment) for all subjects</li>
+      <li>Generate report cards with student photos</li>
+      <li>BECE grading system included</li>
+      <li>Academic and attendance analysis</li>
+    </ul>
+
+    <h3>Document Management</h3>
+    <ul>
+      <li>Print beautifully designed admission forms and acceptance letters</li>
+      <li>Generate and print graduation certificates</li>
+      <li>Create customisable terminal report cards and SBA forms</li>
+      <li>Fully customisable templates for all documents</li>
+      <li>Built-in print layout designs for official outputs</li>
+    </ul>
+
+    <h3>Finance & Staff Records</h3>
+    <ul>
+      <li>Record and track fee payments</li>
+      <li>Manage teacher records</li>
+      <li>Perform financial analysis and reporting</li>
+      <li>Data validation and scanning for accuracy</li>
+    </ul>
+
+    <h3>Smart Automation</h3>
+    <ul>
+      <li>Support for manual and automatic student promotion</li>
+      <li>Online forms for teacher input</li>
+      <li>Seamless integration between database and analysis tools</li>
+      <li>Downloadable database for backups and portability</li>
+      <li>Strong data protection through hybrid architecture</li>
+    </ul>
   </section>
 
+  <div class="cta">
+    <h3>JOAT SMS – Empowering Schools with Smart Simplicity</h3>
+    <p>Ready to take control of your school's operations with confidence?<br>
+    <strong>Choose JOAT SMS. Efficiency starts here.</strong></p>
+  </div>
+
   <footer>
-    <p>© 2025 JOAT SMS. All rights reserved.</p>
+    &copy; 2025 JOAT SMS. All rights reserved.
   </footer>
 
   <!-- Modal -->
@@ -52,10 +234,11 @@
   <script>
     const welcomeMsg = document.getElementById("welcome-msg");
     const messages = [
-      "Welcome to JOAT SMS",
-      "Manage Students with Ease",
-      "Free and Easy to Use",
-      "JOAT SMS: Built for Educators"
+      "WELCOME TO JOAT SMS",
+      "Manage your school with ease",
+      "Free and easy to use",
+      "JOAT SMS – Developed for Educators",
+      "Generate report cards with student photos in one click"
     ];
     let index = 0;
 
