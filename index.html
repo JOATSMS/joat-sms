@@ -1,9 +1,9 @@
-<!DOCTYPE html>   
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JOAT SMS – School Management System</title>
+  <title>JOAT SMS – School Management Solution</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -30,24 +30,29 @@
       flex-wrap: wrap;
     }
     .logo-title-container img {
-      width: 80px;
+      width: 100px;
       height: auto;
     }
     header h1 {
       margin: 0;
       font-size: 2.8rem;
     }
-    header p {
-      font-size: 1.2rem;
+    .tagline-on-image {
       margin-top: 10px;
-      font-weight: bold;
-    }
-    .tagline {
-      background-color: #e6f0ff;
-      padding: 20px;
-      text-align: center;
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+    #loop-text {
+      background-color: #fff0f5;
+      text-align: center;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #004080;
     }
     section {
       padding: 40px 20px;
@@ -88,6 +93,15 @@
       color: white;
       text-decoration: none;
       border-radius: 5px;
+      transition: all 0.3s ease; /* Add transition for smooth hover */
+    }
+    .download-btn:hover,
+    .youtube-link:hover,
+    .doc-link:hover {
+      background-color: #0066cc;
+      color: #fff;
+      transform: scale(1.05);
+      text-decoration: none;
     }
     .modal {
       display: none;
@@ -134,12 +148,11 @@
       <img src="joatsmslogo.png" alt="JOAT SMS Logo">
       <h1>JOAT SMS</h1>
     </div>
-    <p id="welcome-msg">WELCOME TO JOAT SMS</p>
+    <div class="tagline-on-image">Streamline. Simplify. Succeed.</div>
   </header>
 
-  <div class="tagline">
-    <strong>Streamline. Simplify. Succeed.</strong>
-  </div>
+  <!-- Looping Text Section -->
+  <div id="loop-text">WELCOME TO JOAT SMS</div>
 
   <section class="center">
     <button onclick="document.getElementById('downloadModal').style.display='block'" class="download-btn">Download Now</button>
@@ -232,20 +245,25 @@
   </div>
 
   <script>
-    const welcomeMsg = document.getElementById("welcome-msg");
+    const loopText = document.getElementById("loop-text");
     const messages = [
       "WELCOME TO JOAT SMS",
-      "Manage your school with ease",
-      "Free and easy to use",
-      "JOAT SMS – Developed for Educators",
-      "Generate report cards with student photos in one click"
+      "Manage Your School with Ease",
+       "Designed for Educators",
+      "Generate Report Cards",
+      "Generate Graduation Certificates",
+      "Generate Admission Forms",
+      "Generate Acceptance Letters",
+      "Generate SBA Reports & More"
     ];
     let index = 0;
 
-    setInterval(() => {
+    function changeText() {
+      loopText.textContent = messages[index];
       index = (index + 1) % messages.length;
-      welcomeMsg.textContent = messages[index];
-    }, 3000);
+    }
+
+    setInterval(changeText, 3000);
   </script>
 
 </body>
