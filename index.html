@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -155,7 +155,7 @@
   <div id="loop-text">WELCOME TO JOAT SMS</div>
 
   <section class="center">
-    <button onclick="document.getElementById('downloadModal').style.display='block'" class="download-btn">Download Now</button>
+    <button onclick="handleDownload()" class="download-btn">Download Now</button>
     <a class="youtube-link" href="https://youtube.com/@joatacademy4400?si=RuJc0nLcYEZDciDY" target="_blank">Watch Tutorial</a>
     <a class="doc-link" href="https://github.com/JOATSMS/joat-sms/releases/download/v2025.1/JOAT_SMS_2025_User_Guide.pdf" target="_blank">📄 View Documentation</a>
   </section>
@@ -254,7 +254,9 @@
       "Generate Graduation Certificates",
       "Generate Admission Forms",
       "Generate Acceptance Letters",
-      "Generate SBA Reports & More"
+      "Generate SBA Reports & More",
+      "Contact: +233 245 10 10 81",
+      "Email: joattacobbinah@gmail.com"
     ];
     let index = 0;
 
@@ -264,6 +266,25 @@
     }
 
     setInterval(changeText, 3000);
+
+    function handleDownload() {
+      const data = {
+        timestamp: new Date().toISOString(),
+        filename: "JOAT_SMS_Setup.zip",
+        userinfo: navigator.userAgent
+      };
+
+      fetch("https://script.google.com/macros/s/AKfycbzrCJ09yKm-egh4vzV2_k1zBUQkfjUllRoRZQnXGgLUirhT5KqCQkngbzorxwKcqeq6oA/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      document.getElementById('downloadModal').style.display = 'block';
+    }
   </script>
 
 </body>
