@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -103,37 +103,6 @@
       transform: scale(1.05);
       text-decoration: none;
     }
-
-    /* New 2026 Button */
-    .new-release-btn {
-      background-color: #ff6600;
-      border: 2px solid #ff4500;
-      font-size: 18px;
-      padding: 15px 25px;
-      font-weight: bold;
-      transition: transform 0.2s ease;
-    }
-    .new-release-btn:hover {
-      animation: shake 0.5s;
-      background-color: #ff7f33;
-    }
-    .new-release-label {
-      color: #ff4500;
-      font-weight: bold;
-      margin-top: 5px;
-      font-size: 14px;
-    }
-
-    /* Shake animation */
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      20% { transform: translateX(-5px); }
-      40% { transform: translateX(5px); }
-      60% { transform: translateX(-5px); }
-      80% { transform: translateX(5px); }
-      100% { transform: translateX(0); }
-    }
-
     .modal {
       display: none;
       position: fixed;
@@ -185,25 +154,13 @@
   <!-- Looping Text Section -->
   <div id="loop-text">WELCOME TO JOAT SMS</div>
 
-  <!-- ✅ Center Section with Buttons -->
   <section class="center">
-    <!-- 2026 FIRST -->
-  <div style="margin-bottom:25px;">
-    <button class="new-release-btn"
-    onclick="window.location.href='https://joatsms.github.io/School_sms_2026/'">
-      Download JOAT SMS 2026
-    </button>
-    <div class="new-release-label">
-      🚀 New 2026 Edition – Faster • Smarter • More Powerful
-    </div>
-  </div>
-    <!-- Existing Buttons -->
-    <button onclick="window.location.href='https://paystack.shop/pay/joat-sms-download'" class="download-btn">
-      Download Now
-    </button>
-    <a class="youtube-link" href="https://youtube.com/@joatacademy4400?si=RuJc0nLcYEZDciDY" target="_blank">Watch Tutorial</a>
-    <a class="doc-link" href="https://github.com/JOATSMS/joat-sms/releases/download/v2025.1/JOAT_SMS_2025_User_Guide.pdf" target="_blank">📄 View Documentation</a>
 
+<button onclick="window.location.href='https://paystack.shop/pay/joat-sms-download'" class="download-btn">
+  Download Now
+</button>
+<a class="youtube-link" href="https://youtube.com/@joatacademy4400?si=RuJc0nLcYEZDciDY" target="_blank">Watch Tutorial</a>
+    <a class="doc-link" href="https://github.com/JOATSMS/joat-sms/releases/download/v2025.1/JOAT_SMS_2025_User_Guide.pdf" target="_blank">📄 View Documentation</a>
   </section>
 
   <section>
@@ -227,6 +184,7 @@
 
   <section>
     <h2>Core Features</h2>
+
     <h3>Student Management</h3>
     <ul>
       <li>Register and track student information</li>
@@ -273,12 +231,21 @@
   <div class="cta">
     <h3>JOAT SMS – Empowering Schools with Smart Simplicity</h3>
     <p>Ready to take control of your school's operations with confidence?<br>
-    <strong>Choose JOAT SMS. Efficiency starts here. Contact: +233 245 10 10 81 </strong></p>
+    <strong>Choose JOAT SMS. Efficiency starts here.</strong></p>
   </div>
 
   <footer>
     &copy; 2025 JOAT SMS. All rights reserved.
   </footer>
+
+  <!-- Modal -->
+  <div id="downloadModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('downloadModal').style.display='none'">&times;</span>
+      <p>Click below to download:</p>
+      <a id="downloadLink" class="download-btn" href="https://github.com/JOATSMS/joat-sms/releases/download/v2025.1/JOAT_SMS_Setup.zip" target="_blank">Download SMS.zip</a>
+    </div>
+  </div>
 
   <script>
     const loopText = document.getElementById("loop-text");
@@ -301,7 +268,39 @@
       loopText.textContent = messages[index];
       index = (index + 1) % messages.length;
     }
+
     setInterval(changeText, 3000);
+
+    function handleDownload() {
+      // Just show the modal — no data sent here
+      document.getElementById('downloadModal').style.display = 'block';
+    }
+
+    // Attach event listener to the actual download link inside modal
+    document.getElementById("downloadLink").addEventListener("click", function() {
+      const data = {
+        timestamp: new Date().toISOString(),
+        filename: "JOAT_SMS_Setup.zip",
+        userinfo: navigator.userAgent
+      };
+
+      fetch("https://script.google.com/macros/s/AKfycbzrCJ09yKm-egh4vzV2_k1zBUQkfjUllRoRZQnXGgLUirhT5KqCQkngbzorxwKcqeq6oA/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+    });
+
+    // Close modal if user clicks outside modal content
+    window.onclick = function(event) {
+      const modal = document.getElementById('downloadModal');
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
   </script>
 
 </body>
